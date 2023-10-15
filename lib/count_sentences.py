@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import re
 class MyString:
   def __init__(self, value=""):
     self.value = value
@@ -25,8 +25,7 @@ class MyString:
     return self._value.endswith("!")
   
   def count_sentences(self):
-    value = self.value
-    for mark in ["!", "?", ","]:
-      value = value.replace(mark, ".")
-    all_sentences = [x for x in value.split(".") if x]
-    return len(all_sentences)
+    self._value
+    sentences = re.split(r'[.!?]', self._value)
+    sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
+    return len(sentences)
